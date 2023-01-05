@@ -1,0 +1,6 @@
+{
+	"token": "Enter Discord token here",
+	"clientId": "Enter Discord Client ID here",
+	"openaiKey": "Enter OpenAI key here",
+	"defaultModel": "text-davinci-003"
+}
