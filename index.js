@@ -32,15 +32,6 @@ for (const file of commandFiles) {
 	}
 }
 
-// Initialize OpenAI/ChatGPT.
-var modelId = defaultModel;
-
-const configuration = new Configuration({
-  apiKey: openaiKey,
-});
-const openai = new OpenAIApi(configuration);
-
-
 // Process commands.
 client.on("interactionCreate", async interaction => {
 	if (!interaction.isChatInputCommand()) return;
