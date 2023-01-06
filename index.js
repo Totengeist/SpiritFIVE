@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-const { token, defaultModel, openaiKey, clientId } = require('./config.json');
+const { username, token, defaultModel, openaiKey, clientId } = require('./config.json');
 const { Configuration, OpenAIApi } = require('openai');
 
 // Initialize the Discord client
@@ -62,7 +62,11 @@ client.on("interactionCreate", async interaction => {
 
 client.on('ready', () => {
   // Set the bot's presence
-  client.user.setPresence({ activity: { name: 'Talking with ChatGPT' } });
+  if( username != client.user.username) {
+    console.log("Changing username from "+client.user.username+" to "+username);
+    client.user.setUsername(username);
+  }
+  client.user.setPresence({ activity: { name: 'Talking with OpenAI' } });
   console.log("Logged in");
 });
 
